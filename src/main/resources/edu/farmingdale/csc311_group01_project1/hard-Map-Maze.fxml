@@ -21,10 +21,10 @@
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="39.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="30.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="40.0" minWidth="10.0" prefWidth="40.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="25.0" minWidth="10.0" prefWidth="25.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="43.0" minWidth="10.0" prefWidth="41.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="38.0" minWidth="10.0" prefWidth="35.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="49.60000000000002" minWidth="10.0" prefWidth="36.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="34.0" minWidth="10.0" prefWidth="31.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="43.0" minWidth="10.0" prefWidth="32.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="38.0" minWidth="10.0" prefWidth="33.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="49.60000000000002" minWidth="10.0" prefWidth="41.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="37.5999755859375" minWidth="10.0" prefWidth="30.399999999999977" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="56.00009765624998" minWidth="0.0" prefWidth="43.20004882812498" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="65.60000000000002" minWidth="9.599902343750045" prefWidth="26.399999999999977" />
@@ -49,12 +49,12 @@
       <RowConstraints maxHeight="48.19998779296873" minHeight="10.0" prefHeight="40.99997558593748" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <ImageView fx:id="mapImage" fitHeight="528.0" fitWidth="748.0" pickOnBounds="true" preserveRatio="true" smooth="false" translateX="-3.0" GridPane.columnSpan="2147483647" GridPane.rowSpan="2147483647">
+      <ImageView fx:id="mapImage" fitHeight="540.0" fitWidth="744.0" pickOnBounds="true" preserveRatio="true" smooth="false" translateX="-3.0" GridPane.columnSpan="2147483647" GridPane.rowSpan="2147483647">
          <image>
             <Image url="@../../../Images/maze.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="robotImage" fitHeight="66.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="9">
+      <ImageView fx:id="robotImage" fitHeight="66.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="9">
          <image>
             <Image url="@../../../Images/robot.png" />
          </image>

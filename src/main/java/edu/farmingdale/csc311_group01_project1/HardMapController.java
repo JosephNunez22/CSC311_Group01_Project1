@@ -33,7 +33,7 @@ public class HardMapController {
     @FXML
     private void initialize(){
         Image mazeImage = mapImage.getImage();
-        colorBarrier = new ColorBarrier(mazeImage, 1, 0, MAX_ROW, MAX_COL) ;
+        colorBarrier = new ColorBarrier(mazeImage, 29, 300, MAX_ROW, MAX_COL) ;
 
         GridPane.setRowIndex(robotImage,playRow);
         GridPane.setColumnIndex(robotImage,playCol);
@@ -55,11 +55,13 @@ public class HardMapController {
                 break;
             default: return;
         }
+
+        System.out.println("Attempting to move to row: " + nextRow + " col: " + nextCol);
         if(nextCol == MAX_COL && (nextRow == 8||nextRow == 9)){
             System.out.print("you win");
             GridPane.setRowIndex(robotImage,playRow);
             GridPane.setColumnIndex(robotImage,playCol);
-        } else if (nextRow > 0 && nextRow < MAX_ROW && nextCol > 0 && nextCol < MAX_COL){
+        } else if (nextRow > 0 && nextRow <= MAX_ROW && nextCol > 0 && nextCol <= MAX_COL){
             if(colorBarrier.checkBarrier(nextRow, nextCol)){
                 playRow = nextRow;
                 playCol = nextCol;
@@ -73,6 +75,8 @@ public class HardMapController {
                 GridPane.setColumnIndex(robotImage,playCol);
 
             }
+        }else{
+            System.out.print("invalid move: row: " + nextRow + ", col: " + nextCol);
         }
     }
 
