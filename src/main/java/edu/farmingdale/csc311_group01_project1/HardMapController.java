@@ -1,9 +1,14 @@
 package edu.farmingdale.csc311_group01_project1;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class HardMapController {
 
@@ -44,7 +49,22 @@ public class HardMapController {
             default: return;
         }
         if(nextCol == MAX_COL && (nextRow == 8||nextRow == 9)){
-            System.out.print("you win");
+            System.out.println("You won");
+            try{
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("easy-Map-Maze.fxml"));
+                Stage stage2 = new Stage();
+                Scene scene2 = new Scene(fxmlLoader.load());
+                EasyMapController controller = fxmlLoader.getController();
+                scene2.setOnKeyPressed(controller::Navigation);
+                stage2.setTitle("Easy Maze");
+                stage2.setScene(scene2);
+                stage2.show();
+                Stage presentStage = (Stage) mazeGrid.getScene().getWindow();
+                presentStage.close();
+
+            }catch(IOException io){
+                io.printStackTrace();
+            }
             GridPane.setRowIndex(robotImage,playerRow);
             GridPane.setColumnIndex(robotImage,playerCol);
         } else if (nextRow > 0 && nextRow < MAX_ROW && nextCol > 0 && nextCol < MAX_COL){

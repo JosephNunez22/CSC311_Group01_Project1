@@ -13,7 +13,6 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hard-Map-Maze.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         HardMapController controller = fxmlLoader.getController();
-
         scene.setOnKeyPressed(controller::navigateIcon);
         stage.setTitle("Maze Game!");
         stage.setScene(scene);
