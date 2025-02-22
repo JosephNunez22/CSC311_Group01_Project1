@@ -1,19 +1,25 @@
 package edu.farmingdale.csc311_group01_project1;
 
 import javafx.fxml.FXML;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 
 public class HardMapController {
 
     /*Starting position
     *
     * **/
-    private int playerRow = 9;
-    private int playerCol = 1;
+    private int startPlayerRow = 9;
+    private int startPlayerCol = 1;
     private final int MAX_ROW = 14;
     private final int MAX_COL = 21;
+    private ColorBarrier colorBarrier;
+
+    private int playRow = startPlayerRow;
+    private int playCol = startPlayerCol;
 
     @FXML
     private GridPane mazeGrid;
@@ -22,15 +28,21 @@ public class HardMapController {
     private ImageView robotImage;
 
     @FXML
+    private ImageView mapImage;
+
+    @FXML
     private void initialize(){
-        GridPane.setRowIndex(robotImage,playerRow);
-        GridPane.setColumnIndex(robotImage,playerCol);
+        Image mazeImage = mapImage.getImage();
+        colorBarrier = new ColorBarrier(mazeImage, 1, 0, MAX_ROW, MAX_COL) ;
+
+        GridPane.setRowIndex(robotImage,playRow);
+        GridPane.setColumnIndex(robotImage,playCol);
         mazeGrid.requestFocus();
     }
     @FXML
     void navigateIcon(KeyEvent e) {
-        int nextRow = playerRow;
-        int nextCol = playerCol;
+        int nextRow = playRow;
+        int nextCol = playCol;
 
         switch(e.getCode()){
             case UP: nextRow--;
@@ -45,13 +57,22 @@ public class HardMapController {
         }
         if(nextCol == MAX_COL && (nextRow == 8||nextRow == 9)){
             System.out.print("you win");
-            GridPane.setRowIndex(robotImage,playerRow);
-            GridPane.setColumnIndex(robotImage,playerCol);
+            GridPane.setRowIndex(robotImage,playRow);
+            GridPane.setColumnIndex(robotImage,playCol);
         } else if (nextRow > 0 && nextRow < MAX_ROW && nextCol > 0 && nextCol < MAX_COL){
-            GridPane.setRowIndex(robotImage,nextRow);
-            GridPane.setColumnIndex(robotImage,nextCol);
-            playerRow = nextRow;
-            playerCol = nextCol;
+            if(colorBarrier.checkBarrier(nextRow, nextCol)){
+                playRow = nextRow;
+                playCol = nextCol;
+                GridPane.setRowIndex(robotImage,playRow);
+                GridPane.setColumnIndex(robotImage,playCol);
+            }else{
+                System.out.print("oops, try again");
+                playRow = startPlayerRow;
+                playCol = startPlayerCol;
+                GridPane.setRowIndex(robotImage,playRow);
+                GridPane.setColumnIndex(robotImage,playCol);
+
+            }
         }
     }
 
