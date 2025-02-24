@@ -8,9 +8,9 @@
 
 <GridPane fx:id="mazeGrid" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#navigateIcon" prefHeight="540.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.farmingdale.csc311_group01_project1.HardMapController">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="20.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="29.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="35.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="28.0" minWidth="10.0" prefWidth="16.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="33.0" minWidth="10.0" prefWidth="28.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="40.0" minWidth="10.0" prefWidth="40.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="30.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="38.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="30.0" />
@@ -20,11 +20,11 @@
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="30.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="39.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="30.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="35.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="30.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="38.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="30.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="49.60000000000002" minWidth="10.0" prefWidth="43.20003662109377" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="40.0" minWidth="10.0" prefWidth="40.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="34.0" minWidth="10.0" prefWidth="31.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="43.0" minWidth="10.0" prefWidth="32.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="38.0" minWidth="10.0" prefWidth="33.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="49.60000000000002" minWidth="10.0" prefWidth="41.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="37.5999755859375" minWidth="10.0" prefWidth="30.399999999999977" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="56.00009765624998" minWidth="0.0" prefWidth="43.20004882812498" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="65.60000000000002" minWidth="9.599902343750045" prefWidth="26.399999999999977" />
@@ -35,26 +35,26 @@
       <RowConstraints maxHeight="52.40000915527344" minHeight="10.0" prefHeight="43.999996948242185" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="88.8" minHeight="10.0" prefHeight="40.80000305175781" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="83.40001373291017" minHeight="10.0" prefHeight="31.99999389648437" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="93.6" minHeight="10.0" prefHeight="36.00000610351563" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="88.6" minHeight="10.0" prefHeight="31.20001220703125" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="92.39999999999998" minHeight="10.0" prefHeight="36.79998168945312" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="80.40000305175784" minHeight="10.0" prefHeight="31.19999999999999" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="84.80000610351561" minHeight="10.0" prefHeight="39.19998779296873" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="72.39999999999998" minHeight="10.0" prefHeight="27.20001220703125" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="85.60000000000002" minHeight="10.0" prefHeight="43.19998779296873" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="76.00003662109373" minHeight="10.0" prefHeight="28.000006103515602" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="71.19996337890626" minHeight="10.0" prefHeight="40.00001220703126" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="52.80002441406248" minHeight="10.0" prefHeight="24.999975585937477" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="61.00002441406252" minHeight="10.0" prefHeight="44.00002441406252" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="93.6" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="88.6" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="92.39999999999998" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="80.40000305175784" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="84.80000610351561" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="72.39999999999998" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="85.60000000000002" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="76.00003662109373" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="71.19996337890626" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="52.80002441406248" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="61.00002441406252" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="48.19998779296873" minHeight="10.0" prefHeight="40.99997558593748" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <ImageView fitHeight="540.0" fitWidth="744.0" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.columnSpan="2147483647" GridPane.rowSpan="2147483647">
+      <ImageView fx:id="mapImage" fitHeight="540.0" fitWidth="744.0" pickOnBounds="true" preserveRatio="true" smooth="false" translateX="-3.0" GridPane.columnSpan="2147483647" GridPane.rowSpan="2147483647">
          <image>
             <Image url="@../../../Images/maze.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="robotImage" fitHeight="66.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="9">
+      <ImageView fx:id="robotImage" fitHeight="66.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="9">
          <image>
             <Image url="@../../../Images/robot.png" />
          </image>
