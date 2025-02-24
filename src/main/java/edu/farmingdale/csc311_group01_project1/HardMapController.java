@@ -2,11 +2,14 @@ package edu.farmingdale.csc311_group01_project1;
 
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Path;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class HardMapController {
 
@@ -96,6 +99,7 @@ public class HardMapController {
         // Check for win condition
         if (nextCol == MAX_COL && (nextRow == 8 || nextRow == 9)) {
             System.out.print("you win");
+            NextMap();
             GridPane.setRowIndex(robotImage, playRow);
             GridPane.setColumnIndex(robotImage, playCol);
         }
@@ -116,6 +120,23 @@ public class HardMapController {
             // Out of bounds - stay in current position
             System.out.println("invalid move: row: " + nextRow + ", col: " + nextCol);
             // Don't reset to start, just stay where we are
+        }
+    }
+    private void NextMap(){
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("easy-Map-Maze.fxml"));
+            Stage stage2 = new Stage();
+            Scene scene2 = new Scene(fxmlLoader.load());
+            EasyMapController controller = fxmlLoader.getController();
+            scene2.setOnKeyPressed(controller::Navigation);
+            stage2.setTitle("Easy Maze");
+            stage2.setScene(scene2);
+            stage2.show();
+            Stage presentStage = (Stage) mazeGrid.getScene().getWindow();
+            presentStage.close();
+
+        }catch(IOException io){
+            io.printStackTrace();
         }
     }
 
