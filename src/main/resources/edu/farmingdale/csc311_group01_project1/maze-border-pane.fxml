@@ -12,10 +12,10 @@
             <HBox fx:id="ButtonsHBox" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
                   <Button fx:id="gameInfoButton" contentDisplay="CENTER" minWidth="-Infinity" mnemonicParsing="false" onAction="#gameInfoButtonAction" prefWidth="150.0" text="Game Info Button" />
-                  <Button fx:id="infoButton1" contentDisplay="CENTER" layoutX="310.0" layoutY="10.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#gameInfo" prefWidth="150.0" text="Hard Map" />
-                  <Button fx:id="animateHardMapButton" contentDisplay="CENTER" minWidth="-Infinity" mnemonicParsing="false" onAction="#animateHardMap" prefWidth="150.0" text="Animate Hard Map" />
-                  <Button fx:id="infoButton11" contentDisplay="CENTER" layoutX="460.0" layoutY="10.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#gameInfo" prefWidth="150.0" text="Easy Map" />
-                  <Button fx:id="animateEasyMapButton" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#animateEasyMapIcon" prefWidth="150.0" text="Animate Easy Map" />
+                  <Button fx:id="hardMap" contentDisplay="CENTER" layoutX="310.0" layoutY="10.0" minWidth="-Infinity" mnemonicParsing="false" prefWidth="150.0" text="Hard Map" />
+                  <Button fx:id="animateHardMapButton" contentDisplay="CENTER" minWidth="-Infinity" mnemonicParsing="false" prefWidth="150.0" text="Animate Hard Map" />
+                  <Button fx:id="easyMap" contentDisplay="CENTER" layoutX="460.0" layoutY="10.0" minWidth="-Infinity" mnemonicParsing="false" prefWidth="150.0" text="Easy Map" />
+                  <Button fx:id="animateEasyMapButton" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minWidth="-Infinity" mnemonicParsing="false" prefWidth="150.0" text="Animate Easy Map" />
                </children>
             </HBox>
          </bottom>

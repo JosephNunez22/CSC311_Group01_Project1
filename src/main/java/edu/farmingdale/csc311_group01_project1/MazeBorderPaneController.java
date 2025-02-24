@@ -56,4 +56,7 @@ public class MazeBorderPaneController {
             pathAnimation.animatePath(path);
         });
     }
+
+    public void gameInfo(ActionEvent actionEvent) {
+    }
 }

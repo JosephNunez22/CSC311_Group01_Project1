@@ -21,7 +21,6 @@ public class HardMapController {
     private final int MAX_ROW = 15;
     private final int MAX_COL = 22;
     private ColorBarrier colorBarrier;
-    private int cell_size = 40;
     private int playRow = startPlayerRow;
     private int playCol = startPlayerCol;
 
@@ -34,42 +33,18 @@ public class HardMapController {
     @FXML
     private ImageView mapImage;
 
+    public static GridPane getMazeGrid(GridPane mazeGrid) {
+        return mazeGrid;
+    }
+
     @FXML
     private void initialize() {
         Image mazeImage = mapImage.getImage();
         colorBarrier = new ColorBarrier(mazeImage, MAX_ROW, MAX_COL);
 
-        //GridPane.setRowIndex(robotImage, playRow);
-        //GridPane.setColumnIndex(robotImage, playCol);
-        robotImage.setX(27);
-        robotImage.setY(263);
-        mazeGrid.requestFocus();
+        GridPane.setRowIndex(robotImage, playRow);
+        GridPane.setColumnIndex(robotImage, playCol);
 
-        //robotImage.setFitWidth(cell_size);
-        //robotImage.setFitHeight(cell_size);
-        //mazeGrid.add(robotImage, 9, 1);
-
-        int [][] path = {
-                {27,263},{55,263},{55,148},
-                {276,148},{276,91},
-                {332,91},{332,320},
-                {387,320},{387,205},
-                {498,205},{498,91},
-                {553,91},{553,263},
-                {581,263}
-        };
-        /*int[][] path = {
-                {9,1},{9,2},
-                {5,2},{5,10},
-                {3,10},{3,12},
-                {11,12},{11,14},
-                {7,14},{7,18},
-                {3,18},{3,20},
-                {8,20}
-        };*/
-        //create and animate character
-        HardMazePath pathAnimation = new HardMazePath(mazeGrid, robotImage);
-        pathAnimation.animatePath(path);
     }
 
     @FXML
