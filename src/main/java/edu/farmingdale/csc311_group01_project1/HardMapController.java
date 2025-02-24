@@ -25,7 +25,7 @@ public class HardMapController {
     private int playCol = startPlayerCol;
 
     @FXML
-    private GridPane mazeGrid;
+    private static GridPane mazeGrid;
 
     @FXML
     private ImageView robotImage;
@@ -33,7 +33,7 @@ public class HardMapController {
     @FXML
     private ImageView mapImage;
 
-    public static GridPane getMazeGrid(GridPane mazeGrid) {
+    public static GridPane getMazeGrid() {
         return mazeGrid;
     }
 

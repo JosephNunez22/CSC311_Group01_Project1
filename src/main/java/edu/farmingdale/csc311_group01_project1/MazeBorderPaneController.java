@@ -57,6 +57,4 @@ public class MazeBorderPaneController {
         });
     }
 
-    public void gameInfo(ActionEvent actionEvent) {
-    }
 }
