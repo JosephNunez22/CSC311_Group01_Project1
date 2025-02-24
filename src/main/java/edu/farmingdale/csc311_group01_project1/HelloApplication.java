@@ -15,7 +15,6 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("maze-boarder-pane.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         HardMapController controller = fxmlLoader.getController();
-
         scene.setOnKeyPressed(controller::navigateIcon);
         //controller.animateIcon();
         stage.setTitle("Maze Game!");

@@ -1,16 +1,15 @@
 package edu.farmingdale.csc311_group01_project1;
 
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Path;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class HardMapController {
 
@@ -22,15 +21,12 @@ public class HardMapController {
     private final int MAX_ROW = 15;
     private final int MAX_COL = 22;
     private ColorBarrier colorBarrier;
+    private int cell_size = 40;
     private int playRow = startPlayerRow;
     private int playCol = startPlayerCol;
 
     @FXML
-    private static GridPane mazeGrid;
-
-    public static GridPane getMazeGrid() {
-        return mazeGrid;
-    }
+    private GridPane mazeGrid;
 
     @FXML
     private ImageView robotImage;
@@ -43,10 +39,37 @@ public class HardMapController {
         Image mazeImage = mapImage.getImage();
         colorBarrier = new ColorBarrier(mazeImage, MAX_ROW, MAX_COL);
 
-        GridPane.setRowIndex(robotImage, playRow);
-        GridPane.setColumnIndex(robotImage, playCol);
+        //GridPane.setRowIndex(robotImage, playRow);
+        //GridPane.setColumnIndex(robotImage, playCol);
+        robotImage.setX(27);
+        robotImage.setY(263);
         mazeGrid.requestFocus();
 
+        //robotImage.setFitWidth(cell_size);
+        //robotImage.setFitHeight(cell_size);
+        //mazeGrid.add(robotImage, 9, 1);
+
+        int [][] path = {
+                {27,263},{55,263},{55,148},
+                {276,148},{276,91},
+                {332,91},{332,320},
+                {387,320},{387,205},
+                {498,205},{498,91},
+                {553,91},{553,263},
+                {581,263}
+        };
+        /*int[][] path = {
+                {9,1},{9,2},
+                {5,2},{5,10},
+                {3,10},{3,12},
+                {11,12},{11,14},
+                {7,14},{7,18},
+                {3,18},{3,20},
+                {8,20}
+        };*/
+        //create and animate character
+        HardMazePath pathAnimation = new HardMazePath(mazeGrid, robotImage);
+        pathAnimation.animatePath(path);
     }
 
     @FXML
@@ -76,6 +99,7 @@ public class HardMapController {
         // Check for win condition
         if (nextCol == MAX_COL && (nextRow == 8 || nextRow == 9)) {
             System.out.print("you win");
+            NextMap();
             GridPane.setRowIndex(robotImage, playRow);
             GridPane.setColumnIndex(robotImage, playCol);
         }
@@ -96,6 +120,23 @@ public class HardMapController {
             // Out of bounds - stay in current position
             System.out.println("invalid move: row: " + nextRow + ", col: " + nextCol);
             // Don't reset to start, just stay where we are
+        }
+    }
+    private void NextMap(){
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("easy-Map-Maze.fxml"));
+            Stage stage2 = new Stage();
+            Scene scene2 = new Scene(fxmlLoader.load());
+            EasyMapController controller = fxmlLoader.getController();
+            scene2.setOnKeyPressed(controller::Navigation);
+            stage2.setTitle("Easy Maze");
+            stage2.setScene(scene2);
+            stage2.show();
+            Stage presentStage = (Stage) mazeGrid.getScene().getWindow();
+            presentStage.close();
+
+        }catch(IOException io){
+            io.printStackTrace();
         }
     }
 
