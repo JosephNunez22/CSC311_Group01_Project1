@@ -50,21 +50,7 @@ public class HardMapController {
         }
         if(nextCol == MAX_COL && (nextRow == 8||nextRow == 9)){
             System.out.println("You won");
-            try{
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("easy-Map-Maze.fxml"));
-                Stage stage2 = new Stage();
-                Scene scene2 = new Scene(fxmlLoader.load());
-                EasyMapController controller = fxmlLoader.getController();
-                scene2.setOnKeyPressed(controller::Navigation);
-                stage2.setTitle("Easy Maze");
-                stage2.setScene(scene2);
-                stage2.show();
-                Stage presentStage = (Stage) mazeGrid.getScene().getWindow();
-                presentStage.close();
-
-            }catch(IOException io){
-                io.printStackTrace();
-            }
+            NextMap();
             GridPane.setRowIndex(robotImage,playerRow);
             GridPane.setColumnIndex(robotImage,playerCol);
         } else if (nextRow > 0 && nextRow < MAX_ROW && nextCol > 0 && nextCol < MAX_COL){
@@ -72,6 +58,23 @@ public class HardMapController {
             GridPane.setColumnIndex(robotImage,nextCol);
             playerRow = nextRow;
             playerCol = nextCol;
+        }
+    }
+    private void NextMap(){
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("easy-Map-Maze.fxml"));
+            Stage stage2 = new Stage();
+            Scene scene2 = new Scene(fxmlLoader.load());
+            EasyMapController controller = fxmlLoader.getController();
+            scene2.setOnKeyPressed(controller::Navigation);
+            stage2.setTitle("Easy Maze");
+            stage2.setScene(scene2);
+            stage2.show();
+            Stage presentStage = (Stage) mazeGrid.getScene().getWindow();
+            presentStage.close();
+
+        }catch(IOException io){
+            io.printStackTrace();
         }
     }
 
