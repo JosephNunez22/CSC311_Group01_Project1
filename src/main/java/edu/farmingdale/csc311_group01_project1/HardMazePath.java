@@ -7,6 +7,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
+import javafx.scene.shape.Polyline;
 import javafx.util.Duration;
 
 public class HardMazePath {
@@ -21,6 +22,7 @@ public class HardMazePath {
     }
 
     public void animatePath(int[][] path){
+        //Polyline charactersPath = new Polyline();
         Path charactersPath = new Path();
         //set starting point for character
         int startX = path[0][0];
@@ -34,26 +36,27 @@ public class HardMazePath {
             int y = c[1];
             charactersPath.getElements().add(new LineTo(x, y));
         }
-        charactersPath.setStroke(Color.RED);
-        charactersPath.setStrokeWidth(2);
+
         charactersPath.setTranslateX(character.getX());
-        //charactersPath.setTranslateY(character.getY());
-        //charactersPath.setScaleX(1.5);
-        //charactersPath.setScaleY(-.3);
+
 
         pane.getChildren().add(charactersPath);
 
         javafx.animation.PathTransition pt = new javafx.animation.PathTransition();
 
         //duration
-        pt.setDuration(Duration.seconds(30));
+        pt.setDuration(Duration.seconds(7));
         //setting node (character)
         pt.setNode(character);
         //setting path
         pt.setPath(charactersPath);
         //setting orientation
         pt.setOrientation(PathTransition.OrientationType.NONE);
+        pt.setAutoReverse(true);
         pt.play();
 
     }
+
+
 }
+

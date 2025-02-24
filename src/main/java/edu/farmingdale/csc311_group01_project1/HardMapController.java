@@ -36,37 +36,10 @@ public class HardMapController {
         Image mazeImage = mapImage.getImage();
         colorBarrier = new ColorBarrier(mazeImage, MAX_ROW, MAX_COL);
 
-        //GridPane.setRowIndex(robotImage, playRow);
-        //GridPane.setColumnIndex(robotImage, playCol);
-        robotImage.setX(27);
-        robotImage.setY(263);
+        GridPane.setRowIndex(robotImage, playRow);
+        GridPane.setColumnIndex(robotImage, playCol);
         mazeGrid.requestFocus();
 
-        //robotImage.setFitWidth(cell_size);
-        //robotImage.setFitHeight(cell_size);
-        //mazeGrid.add(robotImage, 9, 1);
-
-        int [][] path = {
-                {27,263},{55,263},{55,148},
-                {276,148},{276,91},
-                {332,91},{332,320},
-                {387,320},{387,205},
-                {498,205},{498,91},
-                {553,91},{553,263},
-                {581,263}
-        };
-        /*int[][] path = {
-                {9,1},{9,2},
-                {5,2},{5,10},
-                {3,10},{3,12},
-                {11,12},{11,14},
-                {7,14},{7,18},
-                {3,18},{3,20},
-                {8,20}
-        };*/
-        //create and animate character
-        HardMazePath pathAnimation = new HardMazePath(mazeGrid, robotImage);
-        pathAnimation.animatePath(path);
     }
 
     @FXML
@@ -117,6 +90,24 @@ public class HardMapController {
             System.out.println("invalid move: row: " + nextRow + ", col: " + nextCol);
             // Don't reset to start, just stay where we are
         }
+    }
+
+    public void animateIcon(){
+        robotImage.setX(27);
+        robotImage.setY(263);
+
+        int [][] path = {
+                {20, 280}, {50, 280}, {50, 140},
+                {318, 140}, {318, 70},
+                {390, 70}, {390, 345},
+                {460, 345}, {460, 210},
+                {595, 210}, {595, 80},
+                {665, 80}, {665, 265},
+                {695, 265}
+        };
+
+        HardMazePath pathAnimation = new HardMazePath(mazeGrid, robotImage);
+        pathAnimation.animatePath(path);
     }
 
 }

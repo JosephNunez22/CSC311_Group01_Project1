@@ -15,6 +15,7 @@ public class HelloApplication extends Application {
         HardMapController controller = fxmlLoader.getController();
 
         scene.setOnKeyPressed(controller::navigateIcon);
+        //scene.setOnAction(controller:: animateIcon);
         stage.setTitle("Maze Game!");
         stage.setScene(scene);
         stage.show();
