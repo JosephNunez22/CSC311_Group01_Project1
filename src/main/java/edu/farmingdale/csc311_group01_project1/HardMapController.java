@@ -1,10 +1,14 @@
 package edu.farmingdale.csc311_group01_project1;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Path;
 
@@ -18,12 +22,15 @@ public class HardMapController {
     private final int MAX_ROW = 15;
     private final int MAX_COL = 22;
     private ColorBarrier colorBarrier;
-    private int cell_size = 40;
     private int playRow = startPlayerRow;
     private int playCol = startPlayerCol;
 
     @FXML
-    private GridPane mazeGrid;
+    private static GridPane mazeGrid;
+
+    public static GridPane getMazeGrid() {
+        return mazeGrid;
+    }
 
     @FXML
     private ImageView robotImage;
@@ -90,24 +97,6 @@ public class HardMapController {
             System.out.println("invalid move: row: " + nextRow + ", col: " + nextCol);
             // Don't reset to start, just stay where we are
         }
-    }
-
-    public void animateIcon(){
-        robotImage.setX(27);
-        robotImage.setY(263);
-
-        int [][] path = {
-                {20, 280}, {50, 280}, {50, 140},
-                {318, 140}, {318, 70},
-                {390, 70}, {390, 345},
-                {460, 345}, {460, 210},
-                {595, 210}, {595, 80},
-                {665, 80}, {665, 265},
-                {695, 265}
-        };
-
-        HardMazePath pathAnimation = new HardMazePath(mazeGrid, robotImage);
-        pathAnimation.animatePath(path);
     }
 
 }
