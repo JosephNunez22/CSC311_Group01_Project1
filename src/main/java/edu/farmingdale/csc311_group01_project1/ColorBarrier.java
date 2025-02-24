@@ -15,7 +15,7 @@ public class ColorBarrier {
     private static final Color PATH_COLOR = Color.WHITE; // 0xffffffff
     private static final int Y_OFFSET = 5; // Add a small offset to align with grid
 
-    public ColorBarrier(Image mazeImage, int barrierColorX, int barrierColorY, int maxRow, int maxCol) {
+    public ColorBarrier(Image mazeImage, int maxRow, int maxCol) {
         this.mazeImage = mazeImage;
         this.maxRow = maxRow;
         this.maxCol = maxCol;
@@ -39,7 +39,7 @@ public class ColorBarrier {
             if(pixelX >= 0 && pixelX < mazeImage.getWidth() &&
                     pixelY >= 0 && pixelY < mazeImage.getHeight()) {
                 Color color = pixelReader.getColor(pixelX, pixelY);
-                System.out.println("Color at position: " + color);
+                //System.out.println("Color at position: " + color);
                 return color.equals(PATH_COLOR);
             }
         }
