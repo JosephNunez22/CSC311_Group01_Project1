@@ -1,6 +1,8 @@
 package edu.farmingdale.csc311_group01_project1;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -44,7 +46,11 @@ public class HardMapController {
 
         GridPane.setRowIndex(robotImage, playRow);
         GridPane.setColumnIndex(robotImage, playCol);
-
+        Platform.runLater(() -> {
+            if (mazeGrid != null) {
+                mazeGrid.requestFocus();
+            }
+        });
     }
 
     @FXML
@@ -53,16 +59,16 @@ public class HardMapController {
         int nextCol = playCol;
 
         switch (e.getCode()) {
-            case UP:
+            case W:
                 nextRow--;
                 break;
-            case DOWN:
+            case S:
                 nextRow++;
                 break;
-            case LEFT:
+            case A:
                 nextCol--;
                 break;
-            case RIGHT:
+            case D:
                 nextCol++;
                 break;
             default:
@@ -74,7 +80,7 @@ public class HardMapController {
         // Check for win condition
         if (nextCol == MAX_COL && (nextRow == 8 || nextRow == 9)) {
             System.out.print("you win");
-            NextMap();
+            showWinMessage();
             GridPane.setRowIndex(robotImage, playRow);
             GridPane.setColumnIndex(robotImage, playCol);
         }
@@ -114,5 +120,14 @@ public class HardMapController {
             io.printStackTrace();
         }
     }
+    private void showWinMessage() {
+        Platform.runLater(() -> {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Congratulations!");
+            alert.setHeaderText(null);
+            alert.setContentText("You won the game!");
+            alert.showAndWait();
+        });
 
+    }
 }

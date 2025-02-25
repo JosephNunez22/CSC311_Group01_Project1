@@ -1,21 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.farmingdale.csc311_group01_project1.MazeBorderPaneController">
    <children>
       <BorderPane fx:id="mainMazeBorderPane" prefHeight="750.0" prefWidth="800.0">
          <bottom>
-            <HBox fx:id="ButtonsHBox" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <HBox fx:id="ButtonsHBox" alignment="CENTER" prefHeight="53.0" prefWidth="800.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="gameInfoButton" contentDisplay="CENTER" minWidth="-Infinity" mnemonicParsing="false" onAction="#gameInfoButtonAction" prefWidth="150.0" text="Game Info Button" />
-                  <Button fx:id="hardMap" contentDisplay="CENTER" layoutX="310.0" layoutY="10.0" minWidth="-Infinity" mnemonicParsing="false" prefWidth="150.0" text="Hard Map" />
-                  <Button fx:id="animateHardMapButton" contentDisplay="CENTER" minWidth="-Infinity" mnemonicParsing="false" prefWidth="150.0" text="Animate Hard Map" />
-                  <Button fx:id="easyMap" contentDisplay="CENTER" layoutX="460.0" layoutY="10.0" minWidth="-Infinity" mnemonicParsing="false" prefWidth="150.0" text="Easy Map" />
-                  <Button fx:id="animateEasyMapButton" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minWidth="-Infinity" mnemonicParsing="false" prefWidth="150.0" text="Animate Easy Map" />
+                  <Button fx:id="gameInfoButton" contentDisplay="CENTER" minWidth="-Infinity" mnemonicParsing="false" onAction="#gameInfoButtonClicked" prefHeight="30.0" prefWidth="32.0">
+                     <graphic>
+                        <ImageView fitHeight="19.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Images/Icon-round-Question_mark.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="hardMap" contentDisplay="CENTER" layoutX="310.0" layoutY="10.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#hardMapBtnClicked" prefWidth="150.0" text="Hard Map">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Button fx:id="animateHardMapButton" contentDisplay="CENTER" minWidth="-Infinity" mnemonicParsing="false" onAction="#animateHardMapBtnClicked" prefWidth="150.0" text="Animate Hard Map">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Button fx:id="easyMap" contentDisplay="CENTER" layoutX="460.0" layoutY="10.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#easyMapBtnClicked" prefWidth="150.0" text="Easy Map">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Button fx:id="animateEasyMapButton" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#animateEasyMapBtnClicked" prefWidth="150.0" text="Animate Easy Map">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
                </children>
             </HBox>
          </bottom>

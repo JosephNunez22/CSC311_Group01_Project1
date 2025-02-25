@@ -1,6 +1,8 @@
 package edu.farmingdale.csc311_group01_project1;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
@@ -21,6 +23,11 @@ public class EasyMapController {
         GridPane.setRowIndex(maze2grid, CarRow);
         GridPane.setColumnIndex(maze2grid, CarCol);
         maze2grid.requestFocus();
+        Platform.runLater(() -> {
+            if (maze2grid != null) {
+                maze2grid.requestFocus();
+            }
+        });
     }
     @FXML
     void Navigation(KeyEvent event){
@@ -28,26 +35,37 @@ public class EasyMapController {
         int nextCol = CarCol;
 
         switch(event.getCode()){
-            case UP: nextRow--;
+            case W: nextRow--;
                 break;
-            case DOWN: nextRow++;
+            case S: nextRow++;
                 break;
-            case LEFT: nextCol--;
+            case A: nextCol--;
                 break;
-            case RIGHT: nextCol++;
+            case D: nextCol++;
                 break;
             default: return;
         }
-        if(nextRow == 15||nextRow == 16){
+        if(nextCol >= 16 && (nextRow == 15||nextRow == 16)){
             System.out.print("you have won the Maze game!");
             GridPane.setRowIndex(carImage, CarRow);
             GridPane.setColumnIndex(carImage,CarCol);
+            showWinMessage();
         } else if (nextRow > 0 && nextRow < MAX_ROW && nextCol > 0 && nextCol < MAX_COL){
             GridPane.setRowIndex(carImage,nextRow);
             GridPane.setColumnIndex(carImage,nextCol);
             CarRow = nextRow;
             CarCol = nextCol;
         }
+    }
+    private void showWinMessage() {
+        Platform.runLater(() -> {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Congratulations!");
+            alert.setHeaderText(null);
+            alert.setContentText("You won the game!");
+            alert.showAndWait();
+        });
+
     }
 
 }
