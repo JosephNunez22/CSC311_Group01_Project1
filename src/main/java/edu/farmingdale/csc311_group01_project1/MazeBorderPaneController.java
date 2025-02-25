@@ -40,7 +40,9 @@ public class MazeBorderPaneController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("easy-Map-Maze.fxml"));
             Parent newCenter = loader.load();
+            EasyMapController controller = loader.getController();
             mainMazeBorderPane.setCenter(newCenter);
+            controller.animateEasyMap();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -53,9 +55,9 @@ public class MazeBorderPaneController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("hard-Map-Maze.fxml"));
             Parent newCenter = loader.load();
             HardMapController controller = loader.getController();
-            //controller.animateIcon();
             // Set the loaded node as the center of the BorderPane
             mainMazeBorderPane.setCenter(newCenter);
+            controller.animateHardMap();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -93,29 +95,5 @@ public class MazeBorderPaneController {
         }
     }
 
-    public void animateHardMap(Button animateHardMapButton, ImageView characterImage) {
-
-        characterImage.setX(27);
-        characterImage.setY(263);
-
-        int[][] path = {
-                {20, 280}, {50, 280}, {50, 140},
-                {318, 140}, {318, 70},
-                {390, 70}, {390, 345},
-                {460, 345}, {460, 210},
-                {595, 210}, {595, 80},
-                {665, 80}, {665, 265},
-                {695, 265}
-        };
-
-        ButtonsHBox.setSpacing(10);
-        ButtonsHBox.setAlignment(Pos.CENTER);
-        ButtonsHBox.getChildren().add(animateHardMapButton);
-
-        this.animateHardMapButton.setOnAction(e -> {
-            HardMazePath pathAnimation = new HardMazePath(HardMapController.getMazeGrid(), characterImage);
-            pathAnimation.animatePath(path);
-        });
-    }
 
 }

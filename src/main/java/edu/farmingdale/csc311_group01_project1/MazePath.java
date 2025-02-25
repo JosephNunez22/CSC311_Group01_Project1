@@ -3,26 +3,27 @@ package edu.farmingdale.csc311_group01_project1;
 import javafx.animation.PathTransition;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
-import javafx.scene.shape.Polyline;
 import javafx.util.Duration;
 
-public class HardMazePath {
+public class MazePath {
 
     //private int cell_size;
     private GridPane pane;
     private ImageView character;
 
-    HardMazePath(GridPane pane, ImageView character) {
+    MazePath(GridPane pane, ImageView character) {
+        if(pane == null || character == null){
+            throw new IllegalArgumentException("GridPane and ImageView must be initialized");
+        }
         this.pane = pane;
         this.character = character;
     }
 
     public void animatePath(int[][] path){
-        //Polyline charactersPath = new Polyline();
+
         Path charactersPath = new Path();
         //set starting point for character
         int startX = path[0][0];
@@ -39,8 +40,6 @@ public class HardMazePath {
 
         charactersPath.setTranslateX(character.getX());
 
-
-        pane.getChildren().add(charactersPath);
 
         javafx.animation.PathTransition pt = new javafx.animation.PathTransition();
 

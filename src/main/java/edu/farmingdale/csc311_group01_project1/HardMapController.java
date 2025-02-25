@@ -27,15 +27,16 @@ public class HardMapController {
     private int playCol = startPlayerCol;
 
     @FXML
-    private static GridPane mazeGrid;
+    private GridPane mazeGrid;
 
     @FXML
     private ImageView robotImage;
 
+
     @FXML
     private ImageView mapImage;
 
-    public static GridPane getMazeGrid() {
+    public GridPane getMazeGrid() {
         return mazeGrid;
     }
 
@@ -51,6 +52,27 @@ public class HardMapController {
                 mazeGrid.requestFocus();
             }
         });
+    }
+
+    public void animateHardMap() {
+        if(mazeGrid == null || robotImage == null){
+            System.out.println("Initialize gridpane or imageview");
+        }
+        robotImage.setX(27);
+        robotImage.setY(263);
+
+        int[][] path = {
+                {20, 280}, {50, 280}, {50, 140},
+                {318, 140}, {318, 70},
+                {390, 70}, {390, 345},
+                {460, 345}, {460, 210},
+                {595, 210}, {595, 80},
+                {665, 80}, {665, 265},
+                {695, 265}
+        };
+
+        MazePath pathAnimation = new MazePath(mazeGrid, robotImage);
+        pathAnimation.animatePath(path);
     }
 
     @FXML
@@ -130,4 +152,6 @@ public class HardMapController {
         });
 
     }
+
+
 }
